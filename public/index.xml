@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Backbone Cabal</title>
+    <link>https://backbonecabal.com/</link>
+    <description>Recent content on Backbone Cabal</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://backbonecabal.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About</title>
+      <link>https://backbonecabal.com/about/</link>
+      <pubDate>Wed, 15 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://backbonecabal.com/about/</guid>
+      <description>Monopolizing transaction flow for arbitrage batching with miner support
+ This is a strategy that realizes profit by smart transaction batching for the purposes of arbitrage by controlling transaction ordering.
+Right now every user sends a transaction directly to the network mempool and thus give away the arbitrage, front-running, back-running opportunities to miners(or random bots).
+YCabal creates a virtualized mempool (i.e. a MEV-relay network) that aggregates transactions (batching), such transactions include:</description>
+    </item>
+    
+    <item>
+      <title>Markuop Boilerplate</title>
+      <link>https://backbonecabal.com/dogma/boilerplate/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://backbonecabal.com/dogma/boilerplate/</guid>
+      <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

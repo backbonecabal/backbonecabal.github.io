@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <title>Backbone Cabal</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="theme-color" content="#000084" />
+    <link rel="icon" href="https://backbonecabal.com/favicon.ico">
+    <link rel="canonical" href="https://backbonecabal.com">
+    
+    
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"></button>
+            <a class="brand" href="https://backbonecabal.com">Backbone Cabal</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    
+                    
+                        
+                            <li>
+                                <a href="/about/">
+                                    
+                                    <span>About</span>
+                                </a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/dogma/">
+                                    
+                                    <span>Central Dogma</span>
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav><div id="content" class="container">
+
+<div class="row-fluid navmargin">
+    <div class="page-header">
+        <h1>About - Wed, Jan 15, 2020</h1>
+    </div>
+    <p class="lead">Backbone Cabal</p>
+    <blockquote>
+<p>Monopolizing transaction flow for arbitrage batching with miner support</p>
+</blockquote>
+<p>This is a strategy that realizes profit by smart transaction batching for the
+purposes of arbitrage by controlling transaction ordering.</p>
+<p>Right now every user sends a transaction directly to the network mempool and
+thus give away the arbitrage, front-running, back-running opportunities to
+miners(or random bots).</p>
+<p>YCabal creates a virtualized mempool (i.e. a MEV-relay network) that aggregates
+transactions (batching), such transactions include:</p>
+<p>DEX trades <!-- raw HTML omitted -->
+Interactions with protocols <!-- raw HTML omitted -->
+Auctions <!-- raw HTML omitted -->
+etc <!-- raw HTML omitted --></p>
+<h4 id="tldr---users-can-opt-in-and-send-transactions-to-ycabal-and-in-return-for">TL;DR - Users can opt in and send transactions to YCabal and in return for</h4>
+<p>not having to pay for gas for their transaction we batch process it and take the
+arbitrage profit from it. Risk by inventory price risk is carried by a Vault,
+where Vault depositers are returned the profit the YCabal realizes</p>
+<h2 id="efficiency-by-aggregation">Efficiency by Aggregation</h2>
+<p>By leveraging batching, miner transaction flow, and providing additional
+performant utilities (e.g. faster calculations for finalizing),
+we can realize the following potential avenues for realizing profitable
+activites:</p>
+<ul>
+<li>Meta Transaction Funtionality</li>
+<li>Order trades in different directions sequentially to produce positive slippage</li>
+<li>Backrun Trades</li>
+<li>Frontrun Trades</li>
+<li>At least 21k in the base cost on every transaction is saved</li>
+</ul>
+<blockquote>
+<p><strong>If we have access to transactions before the network we can generate value
+because we can calculate future state, off-chain</strong></p>
+</blockquote>
+<blockquote>
+<p>Think of this as creating a Netting Settlement System (whereas blockchains are
+a real time gross settlement system)</p>
+</blockquote>
+<h2 id="user-capture">User Capture</h2>
+<p>The whole point of Backbone Cabal is to maximize profits from user actions which
+gets distributed for free to miners and bots.
+We intent to extract this value and provide these profits as <code>**cashback**</code> to
+users.</p>
+<p><strong>For example</strong>: A SushiSwap trader who loses <code>X%</code> to slippage during his trade
+can now get <code>X-Y %</code> slippage on his trade, because we were able to backrun his
+trade and give him the arbitrage profits.</p>
+<p>Backbone Cabal gets better and better as more transactions flow because there is
+less uncertaintity about the future state of the network.</p>
+
+    <h4><a href="https://backbonecabal.com">Back to Home</a></h4>
+</div>
+
+
+        </div><footer class="container">
+    <hr class="soften">
+    <p>
+
+    <a href="https://github.com/backbonecaba">See our information</a> | 
+
+&copy; 
+<a href="https:/github.com/backbonecabal" target="_blank">
+    YCabal
+</a>
+<span id="thisyear">2020</span>
+
+    | YCabal
+
+
+        | Built on <a href="//gohugo.io" target="_blank">Hugo</a>
+</p>
+    <p class="text-center">
+        
+        <a href="https://twitter.com">Twitter</a> 
+        
+        <a href="https://github.com">GitHub</a> 
+        <a href="https://gitlab.com">GitLab</a>
+    </p>
+</footer>
+
+</body><link rel="stylesheet" href="/css/bootstrap.css">
+<link rel="stylesheet" href="/css/bootstrap-responsive.css">
+<link rel="stylesheet" href="/css/style.css">
+
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap-386.js"></script>
+<script src="/js/bootstrap-transition.js"></script>
+<script src="/js/bootstrap-alert.js"></script>
+<script src="/js/bootstrap-modal.js"></script>
+<script src="/js/bootstrap-dropdown.js"></script>
+<script src="/js/bootstrap-scrollspy.js"></script>
+<script src="/js/bootstrap-tab.js"></script>
+<script src="/js/bootstrap-tooltip.js"></script>
+<script src="/js/bootstrap-popover.js"></script>
+<script src="/js/bootstrap-button.js"></script>
+<script src="/js/bootstrap-collapse.js"></script>
+<script src="/js/bootstrap-carousel.js"></script>
+<script src="/js/bootstrap-typeahead.js"></script>
+<script src="/js/bootstrap-affix.js"></script>
+<script>
+    _386 = { 
+        fastLoad: false ,
+        onePass: false , 
+        speedFactor: 1 
+    };
+
+    
+    function ThisYear() {
+        document.getElementById('thisyear').innerHTML = new Date().getFullYear();
+    };
+</script></html>
