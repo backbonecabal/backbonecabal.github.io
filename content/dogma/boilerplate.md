@@ -9,11 +9,11 @@ tags = [
     "Exchanges",
     "Settlement and Clearing",
 ]
-applications = [
+categories = [
     "SushiSwap",
     "Yearn Finance",
 ]
-series = ["Themes Guide"]
+series = ["Backbone Cabal"]
 aliases = ["migrate-from-jekyl"]
 +++
 

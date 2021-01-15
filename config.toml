@@ -16,13 +16,13 @@ preserveTaxonomyNames = true
     mainpagedesc = "A backbone site is one that we bend over backwards to make delivery of transactions as reliable and fast as possible,. Such capacity currently include very few providers. "
 
     # The name to display in the copyright section in the footer
-    copyrightname = "Backbon Cabal contributors"
+    copyrightname = "Backbone Cabal contributors"
 
     # The url to use as link in the copyright name in the footer. Leave empty to use none.
     copyrighturl = "https:/github.com/backbonecabal"
 
     # Show the "built on Hugo" disclaimer
-    showhugo = true
+    showhugo = 'false'
 
     # Urls for social networks
     twitter = "https://twitter.com"
@@ -30,7 +30,7 @@ preserveTaxonomyNames = true
     gitlab = "https://gitlab.com"
 
     # Enables or disables the loading animations. false activates them. Default is false.
-    loadfastload = false
+    loadfastload = true
 
     # Sets the speed for the page loading effect. Default is 1.0.
     loadspeedfactor = 1.0
