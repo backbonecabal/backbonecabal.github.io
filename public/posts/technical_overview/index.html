@@ -1,0 +1,72 @@
+<!doctype html><html lang=en><head><title>Backbone Cabal</title><meta charset=utf-8><meta content="utf-8" http-equiv=encoding><meta name=viewport content="width=device-width,initial-scale=1"><meta name=format-detection content="telephone=no"><meta name=theme-color content="#000084"><link rel=icon href=https://backbonecabal.com/favicon.ico><link rel=canonical href=https://backbonecabal.com></head><body><nav class="navbar navbar-inverse navbar-fixed-top"><div class=navbar-inner><div class=container><button type=button class="btn btn-navbar" data-toggle=collapse data-target=.nav-collapse></button>
+<a class=brand href=https://backbonecabal.com>Backbone Cabal</a><div class="nav-collapse collapse"><ul class=nav><li><a href=/about/><span>About</span></a></li><li><a href=/dogma/><span>Central Dogma</span></a></li></ul></div></div></div></nav><div id=content class=container><div class="row-fluid navmargin"><div class=page-header><h1>- Mon, Jan 1, 0001</h1></div><p class=lead></p><p>aliases = [&ldquo;dogma&rdquo;,&ldquo;informative&rdquo;,&ldquo;blog&rdquo;,&ldquo;showcase&rdquo;,&ldquo;about&rdquo;]
+title = &ldquo;Technical Overview&rdquo;
+author = &ldquo;YCabal Contibutors&rdquo;
+tags = [&ldquo;index&rdquo;]</p><h1 id=technical-overview>Technical Overview</h1><h3 id=user-example>User Example</h3><p>Proposed end-user transaction example for interacting with the YCabal</p><blockquote><p>NOTE: Since the JSON-RPC spec allows responses to be returned in a
+different order than sent, we need a mechanism for choosing a
+canonical id from a list that doesn&rsquo;t depend on the order. This
+chooses the &ldquo;minimum&rdquo; id by an arbitrary ordering: the smallest string
+if possible, otherwise the smallest number, otherwise null.</p></blockquote><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-jsx data-lang=jsx><span style=color:#a6e22e>order</span> <span style=color:#f92672>=</span> {
+	<span style=color:#a6e22e>Give</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>ETH</span>,
+	<span style=color:#a6e22e>Want</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>DAI</span>,
+	<span style=color:#a6e22e>SlippageLimit</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>10</span><span style=color:#f92672>%</span>,
+	<span style=color:#a6e22e>Amount</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>1000</span><span style=color:#a6e22e>ETH</span>,
+	<span style=color:#a6e22e>Cabal</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>0xabc</span>...,
+	<span style=color:#a6e22e>FeesIn</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>DAI</span>,
+	<span style=color:#a6e22e>TargetDEX</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>SushiSwap</span>,
+	<span style=color:#a6e22e>Deadline</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Now</span>() <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span><span style=color:#f92672>*</span><span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Minute</span>
+	<span style=color:#a6e22e>Signature</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>sign</span>(<span style=color:#a6e22e>order</span>.<span style=color:#a6e22e>SignBytes</span>())
+}
+</code></pre></div><p>Now if the Cabal broadcasts this transaction with an arbitrage order,
+the transaction contains 2 orders:</p><blockquote><p>Note: the transaction below is a mock-up for the proposed <em>data
+fields</em></p></blockquote><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-jsx data-lang=jsx><span style=color:#a6e22e>transactions</span> <span style=color:#f92672>=</span> [
+	{
+		<span style=color:#a6e22e>Give</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>ETH</span>,
+		<span style=color:#a6e22e>Want</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>DAI</span>,
+		<span style=color:#a6e22e>SlippageLimit</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>10</span><span style=color:#f92672>%</span>,
+		<span style=color:#a6e22e>Amount</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>1000</span><span style=color:#a6e22e>ETH</span>,
+		<span style=color:#a6e22e>Cabal</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>0xabc</span>...,
+		<span style=color:#a6e22e>FeesIn</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>DAI</span>,
+		<span style=color:#a6e22e>TargetDEX</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>SushiSwap</span>,
+		<span style=color:#a6e22e>Deadline</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Now</span>() <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span><span style=color:#f92672>*</span><span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Minute</span>
+		<span style=color:#a6e22e>Signature</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>sign</span>(<span style=color:#a6e22e>order</span>.<span style=color:#a6e22e>SignBytes</span>())
+	},
+	{
+		<span style=color:#a6e22e>Give</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>DAI</span>,
+		<span style=color:#a6e22e>Want</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>ETH</span>,
+		<span style=color:#a6e22e>SlippageLimit</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>1</span><span style=color:#f92672>%</span>,
+		<span style=color:#a6e22e>Amount</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>10</span><span style=color:#a6e22e>ETH</span>,
+		<span style=color:#a6e22e>Cabal</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>0xabc</span>...,
+		<span style=color:#a6e22e>FeesIn</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>DAI</span>,
+		<span style=color:#a6e22e>TargetDEX</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>SushiSwap</span>,
+		<span style=color:#a6e22e>Deadline</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Now</span>() <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span><span style=color:#f92672>*</span><span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Minute</span>
+		<span style=color:#a6e22e>Signature</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>sign</span>(<span style=color:#a6e22e>order</span>.<span style=color:#a6e22e>SignBytes</span>()),
+		<span style=color:#a6e22e>IsBackbone</span> <span style=color:#a6e22e>Cabal</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>true</span>,
+		<span style=color:#a6e22e>TransferProfitTo</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>transactions</span>[<span style=color:#ae81ff>0</span>].<span style=color:#a6e22e>signer</span>
+	}
+]
+</code></pre></div><p>The arbitrage profit generated by second order is sent to the
+<code>msg.sender</code> of the first order.</p><p>The first order will still lose 5%(assumption) in slippage.</p><p>Arbitrage profits will rarely be more than the slippage loss.</p><p>If someone front runs the transaction sent by the Cabal:</p><ol><li>They pay for the gas while post confirmation of transaction the fees
+for order1 goes to the relayer in the signed order.</li><li>They lose 5% in slippage as our real user does.</li></ol><h2 id=engine>Engine</h2><p>YCabal uses a batch auction-based matching engine to execute orders.
+Batch auctions were chosen to reduce the impact of frontrunning on the
+exchange.</p><ol><li><p>All orders for the given market are collected.</p></li><li><p>Orders beyond their time-in-force are canceled.</p></li><li><p>Orders are placed into separate lists by market side, and aggregate
+supply and demand curves are calculated.</p></li><li><p>The matching engine discovers the price at which the aggregate supply
+and demand curves cross, which yields the clearing price. If there is
+a horizontal cross - i.e., two prices for which aggregate supply and
+demand are equal - then the clearing price is the midpoint between
+the two prices.</p></li><li><p>If both sides of the market have equal volume, then all orders are
+completely filled. If one side has more volume than the other, then
+the side with higher volume is rationed pro-rata based on how much
+its volume exceeds the other side. For example, if aggregate demand
+is 100 and aggregate supply is 90, then every order on the demand
+side of the market will be matched by 90%.</p></li></ol><p>Orders are sorted based on their price, and order ID. Order IDs are
+generated at post time and is the only part of the matching engine that
+is time-dependent. However, the oldest order IDs are matched first so
+there is no incentive to post an order ahead of someone else’s.</p><h4><a href=https://backbonecabal.com>Back to Home</a></h4></div></div><footer class=container><hr class=soften><p><a href=https://github.com/backbonecabal>See our information</a> |
+&copy;
+<a href=https:/github.com/backbonecabal target=_blank>YCabal</a>
+<span id=thisyear>2020</span>
+| YCabal
+| Built on <a href=//gohugo.io target=_blank>Hugo</a></p><p class=text-center><a href=https://twitter.com>Twitter</a>
+<a href=https://github.com>GitHub</a>
+<a href=https://gitlab.com>GitLab</a></p></footer></body><link rel=stylesheet href=/css/bootstrap.css><link rel=stylesheet href=/css/bootstrap-responsive.css><link rel=stylesheet href=/css/style.css><script src=/js/jquery.js></script><script src=/js/bootstrap-386.js></script><script src=/js/bootstrap-transition.js></script><script src=/js/bootstrap-alert.js></script><script src=/js/bootstrap-modal.js></script><script src=/js/bootstrap-dropdown.js></script><script src=/js/bootstrap-scrollspy.js></script><script src=/js/bootstrap-tab.js></script><script src=/js/bootstrap-tooltip.js></script><script src=/js/bootstrap-popover.js></script><script src=/js/bootstrap-button.js></script><script src=/js/bootstrap-collapse.js></script><script src=/js/bootstrap-carousel.js></script><script src=/js/bootstrap-typeahead.js></script><script src=/js/bootstrap-affix.js></script><script>_386={fastLoad:!0,onePass:!1,speedFactor:1};function ThisYear(){document.getElementById('thisyear').innerHTML=(new Date).getFullYear()}</script></html>
